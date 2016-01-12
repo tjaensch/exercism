@@ -1,31 +1,28 @@
-// Clock stub file
-
-// Build constraint.
-// It lets our CI (Continuous Integration) testing test the test program.
-// But it's served its purpose by now.  Feel free to delete.
-// +build !example
-
-// To use the right term, this is the package *clause*.
-// You can document general stuff about the package here if you like.
 package clock
 
-// The value of TestVersion here must match `testVersion` in the file
-// clock_test.go.
+import "fmt"
+
 const TestVersion = 2
 
-// Clock API as stub definitions.  No, it doesn't compile yet.
-// More details and hints are in clock_test.go.
+type Clock int
 
-type Clock // Complete the type definition.  Pick a suitable data type.
-
+//convert everything to minutes
 func Time(hour, minute int) Clock {
+	c := Clock((hour*60 + minute) % 1440)
+	if c < 0 {
+		c += 1440
+	}
+	return c
 }
 
-func (Clock) String() string {
+func (c Clock) String() string {
+	return fmt.Sprintf("%02d:%02d", c/60, c%60)
 }
 
-func (Clock) Add(minutes int) Clock {
+func (c Clock) Add(minutes int) Clock {
+	c = (c + Clock(minutes)) % 1440
+	if c < 0 {
+		c += 1440
+	}
+	return c
 }
-
-// Remember to delete all of the stub comments.
-// They are just noise, and reviewers will complain.

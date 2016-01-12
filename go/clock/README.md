@@ -1,3 +1,5 @@
+My solution: http://exercism.io/submissions/7199e48b80664d17ac67c5e9614bf29a
+
 # Clock
 
 Implement a clock that handles times without dates.
