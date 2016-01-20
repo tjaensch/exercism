@@ -22,8 +22,6 @@ func KindFromSides(a, b, c float64) Kind {
 		return Equ
 	} else if a == b || a == c || b == c {
 		return Iso
-	} else {
-		return Sca
 	}
-
+	return Sca
 }
