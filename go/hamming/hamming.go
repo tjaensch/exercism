@@ -7,7 +7,7 @@ import (
 const TestVersion = 2
 
 func Distance(a, b string) (hammingDistance int, err error) {
-	hammingDistance = 0
+	//hammingDistance = 0
 
 	if len(a) != len(b) {
 		return 0, errors.New("sequences of unequal length")
