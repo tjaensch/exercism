@@ -1,9 +1,9 @@
-def leap_year(year):
+def is_leap_year(year):
     if year%100 == 0 and year%400 == 0:
-    	return true
+    	return True
     elif year%100 == 0:
-        return false
+        return False
     elif year%4 == 0:
-        return true
+        return True
     else:
-        return false
+        return False
