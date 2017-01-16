@@ -13,50 +13,50 @@ func ToRomanNumeral(num int) (string, error) {
 	}
 
 	figure := []int{1000, 100, 10, 1}
-	roman_digitA := []string{
+	romanDigitA := []string{
 		1:    "I",
 		10:   "X",
 		100:  "C",
 		1000: "M",
 	}
-	roman_digitB := []string{
+	romanDigitB := []string{
 		1:    "V",
 		10:   "L",
 		100:  "D",
 		1000: "MMMMM",
 	}
 
-	roman_slice := []string{}
+	romanSlice := []string{}
 	x := ""
 
 	for _, f := range figure {
-		digit, i, v := int(num/f), roman_digitA[f], roman_digitB[f]
+		digit, i, v := int(num/f), romanDigitA[f], romanDigitB[f]
 		switch digit {
 		case 1:
-			roman_slice = append(roman_slice, string(i))
+			romanSlice = append(romanSlice, string(i))
 		case 2:
-			roman_slice = append(roman_slice, string(i)+string(i))
+			romanSlice = append(romanSlice, string(i)+string(i))
 		case 3:
-			roman_slice = append(roman_slice, string(i)+string(i)+string(i))
+			romanSlice = append(romanSlice, string(i)+string(i)+string(i))
 		case 4:
-			roman_slice = append(roman_slice, string(i)+string(v))
+			romanSlice = append(romanSlice, string(i)+string(v))
 		case 5:
-			roman_slice = append(roman_slice, string(v))
+			romanSlice = append(romanSlice, string(v))
 		case 6:
-			roman_slice = append(roman_slice, string(v)+string(i))
+			romanSlice = append(romanSlice, string(v)+string(i))
 		case 7:
-			roman_slice = append(roman_slice, string(v)+string(i)+string(i))
+			romanSlice = append(romanSlice, string(v)+string(i)+string(i))
 		case 8:
-			roman_slice = append(roman_slice, string(v)+string(i)+string(i)+string(i))
+			romanSlice = append(romanSlice, string(v)+string(i)+string(i)+string(i))
 		case 9:
-			roman_slice = append(roman_slice, string(i)+string(x))
+			romanSlice = append(romanSlice, string(i)+string(x))
 		}
 
 		num -= digit * f
 		x = i
 	}
 	ret := ""
-	for _, e := range roman_slice {
+	for _, e := range romanSlice {
 		ret += e
 	}
 	return ret, nil
